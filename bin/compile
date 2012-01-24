@@ -20,7 +20,8 @@ CACHE_DIR=$2
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
 CACHE_STORE_DIR="$CACHE_DIR/node_modules/$NPM_VERSION"
 CACHE_TARGET_DIR="$BUILD_DIR/node_modules"
-
+echo $NODE_VERSION
+echo $NPM_VERSION
 function error() {
   echo " !     $*"
   exit 1
