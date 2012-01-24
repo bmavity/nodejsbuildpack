@@ -96,7 +96,7 @@ function package_download() {
   location="$3"
 
   mkdir -p $location
-  package="http://${S3_BUCKET}.s3.amazonaws.com/$engine-$version.tgz"
+  package="http://s3.amazonaws.com/${S3_BUCKET}/$engine-$version.tgz"
   curl $package -s -o - | tar xzf - -C $location
 }
 
