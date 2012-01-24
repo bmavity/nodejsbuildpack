@@ -125,9 +125,9 @@ NPM_VERSION=$(package_resolve_version "npm")
 echo "Using npm version: ${NPM_VERSION}" | indent
 
 # s3 packages
-NODE_PACKAGE="http://${S3_BUCKET}.s3.amazonaws.com/nodejs-${NODE_VERSION}.tgz"
-NPM_PACKAGE="http://${S3_BUCKET}.s3.amazonaws.com/npm-${NPM_VERSION}.tgz"
-SCONS_PACKAGE="http://${S3_BUCKET}.s3.amazonaws.com/scons-${SCONS_VERSION}.tgz"
+NODE_PACKAGE="http://s3.amazonaws.com/${S3_BUCKET}/nodejs-${NODE_VERSION}.tgz"
+NPM_PACKAGE="http://s3.amazonaws.com/${S3_BUCKET}/npm-${NPM_VERSION}.tgz"
+SCONS_PACKAGE="http://s3.amazonaws.com/${S3_BUCKET}/scons-${SCONS_VERSION}.tgz"
 
 # vendor directories
 VENDORED_NODE="$(mktmpdir node)"
