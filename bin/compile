@@ -16,12 +16,14 @@ S3_BUCKET="HerokuNode"
 echo "${S3_BUCKET}"
 # parse and derive params
 BUILD_DIR=$1
+echo "${BUILD_DIR}"
 CACHE_DIR=$2
+echo "${CACHE_DIR}"
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
 CACHE_STORE_DIR="$CACHE_DIR/node_modules/$NPM_VERSION"
 CACHE_TARGET_DIR="$BUILD_DIR/node_modules"
-echo "${NODE_VERSION}"
-echo "${NPM_VERSION}"
+echo "${NODE_VERSION} $NODE_VERSION"
+echo "${NPM_VERSION} $NPM_VERSION"
 function error() {
   echo " !     $*"
   exit 1
