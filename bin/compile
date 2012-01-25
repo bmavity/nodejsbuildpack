@@ -27,8 +27,8 @@ echo "After NPM Version"
 CACHE_STORE_DIR="$CACHE_DIR/node_modules/$NPM_VERSION"
 echo "${CACHE_DIR}"
 CACHE_TARGET_DIR="$BUILD_DIR/node_modules"
-echo "${NODE_VERSION} $NODE_VERSION"
-echo "${NPM_VERSION} $NPM_VERSION"
+echo "node version: ${NODE_VERSION} $NODE_VERSION"
+echo "npm version: ${NPM_VERSION} $NPM_VERSION"
 function error() {
   echo " !     $*"
   exit 1
@@ -107,11 +107,12 @@ function package_download() {
 
   mkdir -p $location
   package="http://s3.amazonaws.com/${S3_BUCKET}/$engine-$version.tgz"
+  echo "${engine} ${version} ${location} ${package}"
   curl $package -s -o - | tar xzf - -C $location
 }
 
 bootstrap_node=$(mktmpdir bootstrap_node)
-package_download "nodejs" "0.4.7" $bootstrap_node
+package_download "nodejs" "0.6.7" $bootstrap_node
 
 # make some associative arrays
 declare -A engine_versions
