@@ -20,7 +20,12 @@ echo "${BUILD_DIR}"
 CACHE_DIR=$2
 echo "${CACHE_DIR}"
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
+echo "${LP_DIR}"
+echo "before NPM Version"
+echo "${NPM_VERSION}"
+echo "After NPM Version"
 CACHE_STORE_DIR="$CACHE_DIR/node_modules/$NPM_VERSION"
+echo "${CACHE_DIR}"
 CACHE_TARGET_DIR="$BUILD_DIR/node_modules"
 echo "${NODE_VERSION} $NODE_VERSION"
 echo "${NPM_VERSION} $NPM_VERSION"
