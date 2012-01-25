@@ -112,8 +112,6 @@ function package_download() {
   curl "$package" -s -o - | tar xzf - -C $location
 }
 
-bootstrap_node=$(mktmpdir bootstrap_node)
-package_download "nodejs" "0.6.7" $bootstrap_node
 echo "After bootstrap"
 # make some associative arrays
 declare -A engine_versions
