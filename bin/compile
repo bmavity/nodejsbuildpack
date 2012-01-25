@@ -62,7 +62,6 @@ function run_npm() {
 }
 
 function manifest_versions() {
-echo "http://s3.amazonaws.com/${S3_BUCKET}/manifest.${1}" 
   curl "http://s3.amazonaws.com/${S3_BUCKET}/manifest.${1}" -s -o - | tr -s '\n' ' '
 }
 
@@ -107,11 +106,12 @@ function package_download() {
 
   mkdir -p $location
   package="http://s3.amazonaws.com/${S3_BUCKET}/$engine-$version.tgz"
-  echo "${engine} ${version} ${location} ${package}"
   echo "curl ${package} -s -o - | tar xzf - -C ${location}"
   curl "$package" -s -o - | tar xzf - -C $location
 }
 
+bootstrap_node=$(mktmpdir bootstrap_node)
+#package_download "nodejs" "0.6.7" $bootstrap_node
 echo "After bootstrap"
 # make some associative arrays
 declare -A engine_versions
